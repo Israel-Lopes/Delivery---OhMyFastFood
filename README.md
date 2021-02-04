@@ -1,3 +1,3 @@
 # Oh my delivery
 
-![Navigation Flow](://ohmyfastfood/templates/navigation_flow.png)
+![Navigation Flow](https://github.com/Israel-Lopes/Delivery---OhMyFastFood/blob/master/templates/navigation_flow.png)
