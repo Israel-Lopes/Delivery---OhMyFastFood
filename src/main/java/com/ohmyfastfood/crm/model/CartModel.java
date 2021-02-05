@@ -1,20 +1,47 @@
 package com.ohmyfastfood.crm.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "cart")
 public class CartModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@ManyToOne
-	private ProductModel productModel;
+	@OneToOne
+	@JoinColumn(name = "user_id")
+	private UserModel userModel;
+	
+	@OneToMany(mappedBy = "cartModel")
+	private List<ProductModel> productModel;
+	
+	public UserModel getUserModel() {
+		return userModel;
+	}
+
+	public void setUserModel(UserModel userModel) {
+		this.userModel = userModel;
+	}
+
+	public List<ProductModel> getProductModel() {
+		return productModel;
+	}
+
+	public void setProductModel(List<ProductModel> productModel) {
+		this.productModel = productModel;
+	}
 
 	public long getId() {
 		return id;
@@ -22,14 +49,6 @@ public class CartModel {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public ProductModel getProductModel() {
-		return productModel;
-	}
-
-	public void setProductModel(ProductModel productModel) {
-		this.productModel = productModel;
 	}
 
 	@Override

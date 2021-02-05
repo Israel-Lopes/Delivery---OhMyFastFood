@@ -1,15 +1,16 @@
 package com.ohmyfastfood.crm.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "product")
 public class ProductModel {
 
 	@Id
@@ -21,6 +22,18 @@ public class ProductModel {
 	
 	@Column(nullable = false)
 	private double price;
+	
+	@ManyToOne
+	@JoinColumn(name = "cart_id")
+	private CartModel cartModel;
+
+	public CartModel getCartModel() {
+		return cartModel;
+	}
+
+	public void setCartModel(CartModel cartModel) {
+		this.cartModel = cartModel;
+	}
 
 	public long getId() {
 		return id;
@@ -46,8 +59,6 @@ public class ProductModel {
 		this.price = price;
 	}
 	
-	@OneToMany
-	private List<CartModel> cart;
 
 	@Override
 	public int hashCode() {

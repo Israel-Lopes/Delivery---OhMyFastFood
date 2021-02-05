@@ -1,12 +1,18 @@
 package com.ohmyfastfood.crm.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "user")
 public class UserModel {
 
 	@Id
@@ -20,13 +26,22 @@ public class UserModel {
 	private String email;
 	
 	@Column(nullable = false)
-	private String password;
-
-	@Column(nullable = false)
 	private String address;
 	
 	@Column(nullable = false)
 	private String cpf;
+	
+	public CartModel getCartModel() {
+		return cartModel;
+	}
+
+	public void setCartModel(CartModel cartModel) {
+		this.cartModel = cartModel;
+	}
+
+	@OneToOne
+	@JoinColumn(name = "cart_id")
+	private CartModel cartModel;
 
 	public Long getId() {
 		return id;
@@ -50,14 +65,6 @@ public class UserModel {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public String getAddress() {
