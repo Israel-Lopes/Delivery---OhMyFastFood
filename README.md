@@ -4,6 +4,7 @@
 
 ## Routes
 
+### /users
 user      | value
 --------- | ------
 id        | Long
@@ -13,12 +14,14 @@ passwor   | String
 address   | String
 cpf       | String
 
+### /product
 product   | value
 --------- | ------
 id        | Long
 name      | String
 price     | double
 
+### /cart
 cart      | value
 --------- | ------
 id        | Long
