@@ -1,6 +1,5 @@
-package com.ohmyfastfood.crm.model;
+/*package com.ohmyfastfood.crm.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,27 +12,16 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "user")
-public class UserModel {
+@Table(name = "payment")
+public class PaymentModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private long id;
 	
-	@Column(nullable = false)
-	private String name;
+	private String payment;
 	
-	@Column(nullable = false)
-	private String email;
-	
-	@Column(nullable = false)
-	private String address;
-	
-	@Column(nullable = false)
-	private String cpf;
-
 	@OneToOne
 	@JoinColumn(name = "cart_id")
 	private CartModel cartModel;
-
-}
+}*/
