@@ -15,6 +15,8 @@ Springboot API focused on Delivery commerce.**
 users |products |cart |
 :---- |---- |---- |
 
+[Postman plugin for test](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en)
+
 
 
 ## Navigation flow
