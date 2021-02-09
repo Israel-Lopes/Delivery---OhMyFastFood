@@ -15,7 +15,7 @@ import com.ohmyfastfood.crm.model.ProductModel;
 import com.ohmyfastfood.crm.repository.ProductRepository;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/products")
 public class ProductController {
 
 	@Autowired
