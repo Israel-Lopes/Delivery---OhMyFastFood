@@ -21,14 +21,12 @@ public class CartModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@OneToOne
 	@JoinColumn(name = "user_id")
 	private UserModel userModel;
-	
-	@OneToMany(mappedBy = "cartModel")
+
+	@OneToMany
+	@JoinColumn(name = "product_id")
 	private List<ProductModel> productModel;
-	
-	/*@OneToOne(mappedBy = "cartModel")
-	private List<PaymentModel> paymentModel;*/
 }
