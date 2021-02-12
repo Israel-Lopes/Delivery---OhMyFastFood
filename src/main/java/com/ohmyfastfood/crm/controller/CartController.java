@@ -39,7 +39,7 @@ public class CartController {
 	}
 
 	@GetMapping("/{id}")
-    public ResponseEntity<CartModel> detalhar(@PathVariable Long id) {
+    public ResponseEntity<CartModel> getACart(@PathVariable Long id) {
 		CartModel cartModel = cartRepository.findById(id).get();
             return ResponseEntity.ok(cartModel);
 	}
@@ -50,7 +50,6 @@ public class CartController {
 				cartRepository.findById(id);
 				 cart.setUserModel(cart.getUserModel());
 				 cart.setProductModel(cart.getProductModel());
-				 //cart.setTypePayment(cart.getTypePayment());
 				CartModel updated = cartRepository.save(cart);
 	           return ResponseEntity.ok().body(updated);
 	}

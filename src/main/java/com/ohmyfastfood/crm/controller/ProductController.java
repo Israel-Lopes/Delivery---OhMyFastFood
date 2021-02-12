@@ -37,7 +37,7 @@ public class ProductController {
 	}
 
 	@GetMapping("/{id}")
-    public ResponseEntity<ProductModel> detalhar(@PathVariable Long id) {
+    public ResponseEntity<ProductModel> getAProduct(@PathVariable Long id) {
 		ProductModel productModel = productRepository.findById(id).get();
             return ResponseEntity.ok(productModel);
 	}

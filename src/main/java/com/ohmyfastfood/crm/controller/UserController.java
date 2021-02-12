@@ -37,7 +37,7 @@ public class UserController {
 	}
 
 	@GetMapping("/{id}")
-    public ResponseEntity<UserModel> detalhar(@PathVariable Long id) {
+    public ResponseEntity<UserModel> getAUser(@PathVariable Long id) {
 		UserModel userModel = userRepository.findById(id).get();
             return ResponseEntity.ok(userModel);
 	}

@@ -29,4 +29,5 @@ public class CartModel {
 	@OneToMany
 	@JoinColumn(name = "product_id")
 	private List<ProductModel> productModel;
+
 }
