@@ -21,7 +21,7 @@ import com.ohmyfastfood.crm.model.UserModel;
 import com.ohmyfastfood.crm.repository.CartRepository;
 
 @RestController
-@RequestMapping("/cart")
+@RequestMapping("/carts")
 public class CartController {
 
 	@Autowired
@@ -34,7 +34,7 @@ public class CartController {
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public CartModel addProduct(@RequestBody CartModel cart) {
+	public CartModel addCart(@RequestBody CartModel cart) {
 		return cartRepository.save(cart);
 	}
 
@@ -45,13 +45,15 @@ public class CartController {
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity update(@PathVariable Long id,
-	                             @RequestBody CartModel cart) {
-				cartRepository.findById(id);
-				 cart.setUserModel(cart.getUserModel());
-				 cart.setProductModel(cart.getProductModel());
-				CartModel updated = cartRepository.save(cart);
-	           return ResponseEntity.ok().body(updated);
+	public ResponseEntity 
+		   update(@PathVariable Long id,
+	              @RequestBody CartModel cart) {
+			cartRepository.findById(id);
+			 cart.setId(id);
+			 cart.setUserModel(cart.getUserModel());
+			 cart.setProductModel(cart.getProductModel());
+			  CartModel updated = cartRepository.save(cart);
+	        return ResponseEntity.ok().body(updated);
 	}
 
 	@DeleteMapping("/{id}")
