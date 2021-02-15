@@ -32,12 +32,6 @@ public class UserModel {
 	@Column(nullable = false)
 	private String cpf;
 
-	/**
-	 * @Description (Only admins will have true,
-	 * 	so it is not mandatory in the request body)
-	 * */
-	private Boolean isAdmin = false;
-
 	@OneToOne(cascade = CascadeType.ALL)
 	private PaymentModel typePayment;
 }
