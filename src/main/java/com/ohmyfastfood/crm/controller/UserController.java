@@ -51,7 +51,6 @@ public class UserController {
 	           record.setEmail(user.getEmail());
 	           record.setAddress(user.getAddress());
 	           record.setCpf(user.getCpf());
-	           record.setIsAdmin(user.getIsAdmin());
 	           record.setTypePayment(user.getTypePayment());
 	           UserModel updated = userRepository.save(record);
 	           return ResponseEntity.ok().body(updated);
